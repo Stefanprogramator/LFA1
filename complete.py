@@ -49,7 +49,7 @@ class Matrix:
                             # print(j)
                             for l in range(len(self.matrix[k][j])):
                                 if self.matrix[k][j][l] == cuvant[i]:
-                                    if copie[k][j][l] != '0':
+                                    if copie[k][j][l] != '-':
                                         g.edge(p[k], p[j], label=cuvant[i], color="blue", style="filled")
                                         copie[k][j][l] = '-'
                                     break
