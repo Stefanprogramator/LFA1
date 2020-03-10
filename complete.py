@@ -40,7 +40,7 @@ class Matrix:
                     g.edge(nod_start[0], p[i], label=cuvant[0], color="blue", style="filled")
                     for l in range(len(self.matrix[d[nod_start[0]]][i])):
                         if self.matrix[d[nod_start[0]]][i][l] == cuvant[i]:
-                            copie[d[nod_start[0]]][i][l] = '0'
+                            copie[d[nod_start[0]]][i][l] = '-'
             if ok == 1:
                 for i in range(1, len(cuvant)):
                     verify = 0
@@ -51,12 +51,12 @@ class Matrix:
                                 if self.matrix[k][j][l] == cuvant[i]:
                                     if copie[k][j][l] != '0':
                                         g.edge(p[k], p[j], label=cuvant[i], color="blue", style="filled")
-                                        copie[k][j][l] = '0'
+                                        copie[k][j][l] = '-'
                                     break
                             k = j
                             verify = 1
                             break
-                    if verify == 0 and i < len(cuvant) - 1:
+                    if verify == 0 and i < len(cuvant):
                         ok = 0
                         break
 
@@ -78,7 +78,7 @@ class Matrix:
         for i in range(n):
             for j in range(n):
                 for q in copie[i][j]:
-                    if q != '0':
+                    if q != '-':
                         g.edge(p[i], p[j], label=q)
         g.view()
         return ok
